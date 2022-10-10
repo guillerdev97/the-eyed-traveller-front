@@ -1,15 +1,16 @@
 <script>
 import TheAuthHeader from "../components/TheAuthHeader.vue";
+import RegisterForm from "../components/RegisterForm.vue";
+
 export default {
   name: "RegisterView",
-  components: { TheAuthHeader },
+  components: { TheAuthHeader, RegisterForm },
 };
 </script>
 
 <template>
   <TheAuthHeader />
-
-  This is the register view
+  <RegisterForm />
 </template>
 
 <style></style>

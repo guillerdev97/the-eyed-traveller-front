@@ -10,7 +10,7 @@ export default {
       <router-link to="/"
         ><h4 id="title" class="fw-bold">The Eyed Traveller</h4></router-link
       >
-      <h1 class="fw-bold fs-2">Find your next travel</h1>
+      <h1 class="fw-bold fs-3">Find your next travel</h1>
     </nav>
   </header>
 </template>
