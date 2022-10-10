@@ -1,6 +1,7 @@
 /* css root variables */
 :root {
   --base-color-blue: #003580;
+  --base-color-bluelight: #0071c2;
 
 
 }
@@ -13,9 +14,12 @@
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
   list-style-type: none;
+}
+a:hover {
+  color: white;
 }
 
 h1,

@@ -1,48 +1,62 @@
 <script>
+import { RouterLink } from "vue-router";
+
 export default {
   name: "TheHeader",
+
+  components: { RouterLink },
 };
 </script>
 
 <template>
   <header
-    class="d-flex flex-column justify-content-around align-items pt-3 pb-3"
+    class="d-flex flex-column justify-content-around align-items-center pt-3 pb-3"
   >
-    <nav class="d-flex justify-content-between align-items w-75 border mb-2">
-      <h4>The Eyed Traveller</h4>
+    <nav class="d-flex justify-content-between align-items-center w-75 mb-3">
+      <a href="/"><h4 id="title" class="fw-bold">The Eyed Traveller</h4></a>
 
-      <div class="d-flex justify-content-around align-items w-25 border">
+      <div id="login" class="d-flex justify-content-around align-items-center">
         <div>
-          <p>Create your account</p>
+          <p class="pt-1 pb-1">Create your account</p>
         </div>
+
         <div>
-          <p>Sign in</p>
+          <p class="pt-1 pb-1">Sign in</p>
         </div>
       </div>
     </nav>
 
-    <nav
-      class="d-flex justify-content-center align-items-center w-75 border mb-5"
-    >
-      <div class="d-flex justify-content-around align-items w-25 border">
-        <p>Food</p>
-        <p>Attractions</p>
+    <nav class="d-flex justify-content-center align-items-center w-75 mb-5">
+      <div
+        id="categories"
+        class="d-flex justify-content-around align-items w-50"
+      >
+        <router-link class="link" to="/">
+          <p class="pt-2 pb-2">Explore</p>
+        </router-link>
+
+        <router-link class="link" to="/food">
+          <p class="pt-2 pb-2">Food</p>
+        </router-link>
+
+        <router-link class="link" to="/attractions">
+          <p class="pt-2 pb-2">Attractions</p>
+        </router-link>
       </div>
     </nav>
 
-    <div
-      class="d-flex flex-column justify-content-center align-items w-75 border"
-    >
-      <h1 class="mb-2">Find your next travel</h1>
+    <div class="d-flex flex-column justify-content-center align-items w-75">
+      <h1 class="mb-2 fw-bold fs-1">Find your next travel</h1>
+
       <h4 class="mb-5">
-        Search images, find them and travel through your eyes
+        Search images, keep them and travel through your eyes...
       </h4>
     </div>
 
     <section>
       <form>
-        <input type="text" placeholder="🔍" />
-        <input type="submit" />
+        <input id="input" type="text" placeholder="🔍 Where are you going?" />
+        <input id="submit" type="submit" value="Search" />
       </form>
     </section>
   </header>
@@ -51,42 +65,71 @@ export default {
 <style scoped>
 @import "../assets/main.css";
 
+.link.active {
+  background-color: rgba(255, 255, 255, 0.098);
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
 header {
   color: white;
   background-color: var(--base-color-blue);
   width: 100%;
 }
-img #logo {
-  width: 100%;
-  height: 95%;
+
+#title {
+  cursor: pointer;
 }
-header,
-.user {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+
+#login {
+  width: 20vw;
 }
-.appTitle {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-weight: 700;
-  font-size: 3vh;
-  color: var(--base-color-orange);
+#login p {
+  padding-left: 0.7vw;
+  padding-right: 0.7vw;
+  font-size: 1.3vw;
+  color: var(--base-color-bluelight);
+  background-color: white;
+  transition: all 0.2s ease-in;
 }
-.user p,
-#logout {
-  color: var(--base-color-white);
-  font-family: "Raleway", sans-serif;
-  font-weight: 700;
-  font-size: 1.5vh;
+#login p:hover {
+  cursor: pointer;
+  background-color: rgb(223, 237, 251);
 }
-.user div {
-  margin: 0 0.5vw 0 0.5vw;
+
+#categories p {
+  padding-left: 1.4vw;
+  padding-right: 1.4vw;
+  color: white;
+  border-radius: 20px;
+  transition: all 0.2s ease-in;
 }
-#logout {
-  border: none;
-  width: 5vw;
-  height: 4vh;
-  border-radius: 10vh;
-  background-color: var(--purple-dark);
+#categories p:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.098);
+}
+
+#input {
+  padding: 1vh 1.5vw;
+  color: rgb(99, 99, 99);
+  border: 3px solid #febb02;
+  outline: none;
+}
+#input:hover {
+  box-shadow: 0.1px 0.1px 0.1px 1px rgb(127, 127, 127) inset;
+}
+#input:focus {
+  color: rgb(99, 99, 99);
+}
+
+#submit {
+  padding: 1vh 1.5vw;
+  color: white;
+  background-color: var(--base-color-bluelight);
+  border: 3px solid #febb02;
+  transition: all 0.2s ease-in;
+}
+#submit:hover {
+  background-color: #005998;
 }
 </style>

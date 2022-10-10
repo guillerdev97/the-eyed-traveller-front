@@ -1,15 +1,9 @@
 <script>
-import TheHeader from "../components/TheHeader.vue";
-
 export default {
   name: "HomeView",
-
-  components: { TheHeader },
 };
 </script>
 
-<template>
-  <TheHeader />
-</template>
+<template>This is the home view</template>
 
 <style></style>
