@@ -1,15 +1,16 @@
 <script>
 import TheHeader from "../components/TheHeader.vue";
+import TrendingHome from "../components/TrendingHome.vue";
 
 export default {
   name: "HomeView",
-  components: { TheHeader },
+  components: { TheHeader, TrendingHome },
 };
 </script>
 
 <template>
   <TheHeader />
-  This is the home view
+  <TrendingHome />
 </template>
 
 <style></style>
