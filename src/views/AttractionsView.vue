@@ -1,9 +1,14 @@
 <script>
+import TheHeader from "../components/TheHeader.vue";
 export default {
   name: "AttractionsView",
+  components: { TheHeader },
 };
 </script>
 
-<template>This is the attractions view</template>
+<template>
+  <TheHeader />
+  This is the attractions view
+</template>
 
 <style></style>

@@ -1,9 +1,14 @@
 <script>
+import TheAuthHeader from "../components/TheAuthHeader.vue";
 export default {
   name: "LoginView",
+  components: { TheAuthHeader },
 };
 </script>
 
-<template>This is the food view</template>
+<template>
+  <TheAuthHeader />
+  This is the login view
+</template>
 
 <style></style>

@@ -13,15 +13,21 @@ export default {
     class="d-flex flex-column justify-content-around align-items-center pt-3 pb-3"
   >
     <nav class="d-flex justify-content-between align-items-center w-75 mb-3">
-      <a href="/"><h4 id="title" class="fw-bold">The Eyed Traveller</h4></a>
+      <router-link to="/">
+        <h4 id="title" class="fw-bold">The Eyed Traveller</h4>
+      </router-link>
 
       <div id="login" class="d-flex justify-content-around align-items-center">
         <div>
-          <p class="pt-1 pb-1">Create your account</p>
+          <router-link to="/register"
+            ><p class="pt-1 pb-1">Create your account</p></router-link
+          >
         </div>
 
         <div>
-          <p class="pt-1 pb-1">Sign in</p>
+          <router-link to="/login"
+            ><p class="pt-1 pb-1">Sign in</p></router-link
+          >
         </div>
       </div>
     </nav>
