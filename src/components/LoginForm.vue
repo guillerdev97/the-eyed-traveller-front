@@ -16,6 +16,10 @@ export default {
   },
 
   methods: {
+    clearStorage() {
+      localStorage.clear();
+    },
+
     async correctLogin() {
       const response = await apiAuth.login(this.form);
 
@@ -48,6 +52,10 @@ export default {
       }
     },
   },
+
+  created() {
+    this.clearStorage();
+  },
 };
 </script>
 
@@ -73,8 +81,9 @@ export default {
               type="text"
               class="form-control"
               placeholder="E-mail"
+              v-model="form.email"
             />
-            <p v-if="this.noRegister">Usuario no registrado</p>
+            <p v-if="this.noRegister">User no registered</p>
           </div>
 
           <div>
@@ -84,8 +93,9 @@ export default {
               type="password"
               class="form-control"
               placeholder="Password"
+              v-model="form.password"
             />
-            <p v-if="this.incorrect">Contraseña incorrecta</p>
+            <p v-if="this.incorrect">Incorrect password</p>
           </div>
 
           <button id="enter" v-on:click="correctLogin">Enter</button>
