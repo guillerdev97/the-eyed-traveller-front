@@ -6,6 +6,21 @@ const router = createRouter({
   routes: [
     {
       path: "/",
+      name: "landing",
+      component: () => import("../views/LandingView.vue"),
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../views/LoginView.vue"),
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: () => import("../views/RegisterView.vue"),
+    },
+    {
+      path: "/home",
       name: "home",
       component: () => import("../views/HomeView.vue"),
     },
@@ -19,16 +34,7 @@ const router = createRouter({
       name: "attractions",
       component: () => import("../views/AttractionsView.vue"),
     },
-    {
-      path: "/login",
-      name: "login",
-      component: () => import("../views/LoginView.vue"),
-    },
-    {
-      path: "/register",
-      name: "register",
-      component: () => import("../views/RegisterView.vue"),
-    },
+
     {
       path: "/myview",
       name: "myview",

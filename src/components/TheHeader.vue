@@ -28,7 +28,7 @@ export default {
       localStorage.removeItem("token");
       localStorage.removeItem("name");
 
-      this.$router.push("/login");
+      this.$router.push("/");
     },
 
     headerName() {
@@ -58,20 +58,20 @@ export default {
       <div id="login" class="d-flex justify-content-around align-items-center">
         <div v-if="this.token === false">
           <router-link to="/register"
-            ><p class="pt-1 pb-1">Create your account</p></router-link
+            ><p class="pt-1 pb-1 user">Create your account</p></router-link
           >
         </div>
 
         <div v-if="this.token === false">
           <router-link to="/login"
-            ><p class="pt-1 pb-1">Sign in</p></router-link
+            ><p class="pt-1 pb-1 user">Sign in</p></router-link
           >
         </div>
         <p id="name" v-if="name != undefined">Hola, {{ name }}</p>
         <div v-if="this.token === true">
-          <router-link to="/login"
-            ><p class="pt-1 pb-1">Log out</p></router-link
-          >
+          <button type="button" v-on:click="logout">
+            <p class="pt-1 pb-1 user">Log out</p>
+          </button>
         </div>
       </div>
     </nav>
@@ -129,7 +129,7 @@ header {
 #login {
   width: 20vw;
 }
-#login p {
+#login .user {
   padding-left: 0.7vw;
   padding-right: 0.7vw;
   font-size: 1.3vw;
@@ -137,9 +137,15 @@ header {
   background-color: white;
   transition: all 0.2s ease-in;
 }
-#login p:hover {
+#login .user:hover {
   cursor: pointer;
   background-color: rgb(223, 237, 251);
+}
+
+#name {
+  color: white;
+  background-color: none !important;
+  border: none;
 }
 
 #categories p {
@@ -152,11 +158,5 @@ header {
 #categories p:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.098);
-}
-
-#name {
-  color: white;
-  background-color: none !important;
-  border: none;
 }
 </style>
