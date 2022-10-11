@@ -10,10 +10,15 @@ export default {
     duration() {
       setTimeout(this.pushToHome, 2000);
     },
+
+    clearStorage() {
+      localStorage.removeItem("token");
+    },
   },
 
   created() {
     this.duration();
+    this.clearStorage();
   },
 };
 </script>
