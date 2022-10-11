@@ -1,14 +1,52 @@
 <script>
+import { apiAuth } from "../services/apiAuth.js";
+
 export default {
   name: "LoginForm",
 
   data() {
     return {
+      incorrect: false,
+      noRegister: false,
       form: {
         email: "",
         password: "",
       },
     };
+  },
+
+  methods: {
+    async correctLogin() {
+      const response = await apiAuth.login(this.form);
+
+      // bad response cases
+      if (response === undefined) {
+        this.noRegister = true;
+        return;
+      }
+
+      if (response === "Incorrect password") {
+        this.incorrect = true;
+        return;
+      }
+
+      if (response === "User no registered") {
+        this.noRegister = true;
+        return;
+      }
+
+      // good response cases
+      if (response != undefined) {
+        const token = response.data.access_token;
+        const name = response.data.data.name;
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("name", name);
+
+        this.$router.push("/myview");
+        return;
+      }
+    },
   },
 };
 </script>
@@ -36,6 +74,7 @@ export default {
               class="form-control"
               placeholder="E-mail"
             />
+            <p v-if="this.noRegister">Usuario no registrado</p>
           </div>
 
           <div>
@@ -46,9 +85,10 @@ export default {
               class="form-control"
               placeholder="Password"
             />
+            <p v-if="this.incorrect">Contraseña incorrecta</p>
           </div>
 
-          <button id="enter">Enter</button>
+          <button id="enter" v-on:click="correctLogin">Enter</button>
         </div>
       </div>
     </div>
