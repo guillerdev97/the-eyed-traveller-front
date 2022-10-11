@@ -66,11 +66,9 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   if (to.meta.requiresAuth && !localStorage.getItem("token")) {
-    alert("You have to log in to see your favorite images!");
-
     router.push({
-      path: "/home",
-      name: "home",
+      path: "/login",
+      name: "login",
       component: () => import("../views/LoginView.vue"),
     });
   }

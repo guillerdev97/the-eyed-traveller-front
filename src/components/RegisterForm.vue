@@ -1,4 +1,6 @@
 <script>
+import { apiAuth } from "../services/apiAuth.js";
+
 export default {
   name: "RegisterForm",
 
@@ -11,6 +13,22 @@ export default {
         password_confirmation: "",
       },
     };
+  },
+
+  methods: {
+    async register() {
+      const verify = confirm(
+        "Do you want to create an account with this data?"
+      );
+
+      if (verify === true) {
+        await apiAuth.register(this.form);
+
+        this.$router.push("/login");
+      }
+
+      return;
+    },
   },
 };
 </script>
@@ -37,6 +55,7 @@ export default {
               type="text"
               class="form-control"
               placeholder="Name"
+              v-model="form.name"
             />
           </div>
 
@@ -47,6 +66,7 @@ export default {
               type="text"
               class="form-control"
               placeholder="E-mail"
+              v-model="form.email"
             />
           </div>
 
@@ -57,6 +77,7 @@ export default {
               type="password"
               class="form-control"
               placeholder="Password"
+              v-model="form.password"
             />
           </div>
 
@@ -67,10 +88,11 @@ export default {
               type="password"
               class="form-control"
               placeholder="Confirm password"
+              v-model="form.password_confirmation"
             />
           </div>
 
-          <button id="create">Create your account</button>
+          <button id="create" v-on:click="register">Create your account</button>
         </div>
       </div>
     </div>

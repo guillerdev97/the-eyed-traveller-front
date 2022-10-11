@@ -7,7 +7,7 @@ export default {
 <template>
   <header class="d-flex justify-content-center align-items-center pt-3 pb-3">
     <nav class="d-flex justify-content-between align-items-center w-75">
-      <router-link to="/"
+      <router-link to="/home"
         ><h4 id="title" class="fw-bold">The Eyed Traveller</h4></router-link
       >
       <h1 class="fw-bold fs-3">Find your next travel</h1>
