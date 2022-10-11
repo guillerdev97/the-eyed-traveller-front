@@ -67,7 +67,9 @@ export default {
             ><p class="pt-1 pb-1 user">Sign in</p></router-link
           >
         </div>
-        <p id="name" v-if="name != undefined">Hola, {{ name }}</p>
+        <p id="name" v-if="name != undefined">
+          Hola, {{ name }}<span id="settings"><a href="/settings">⚙️</a></span>
+        </p>
         <div v-if="this.token === true">
           <button type="button" v-on:click="logout">
             <p class="pt-1 pb-1 user">Log out</p>
@@ -150,6 +152,10 @@ header {
   color: white;
   background-color: none !important;
   border: none;
+}
+
+#settings {
+  margin-left: 1vw;
 }
 
 #categories p {

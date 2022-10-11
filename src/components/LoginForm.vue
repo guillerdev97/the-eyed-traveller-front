@@ -51,6 +51,11 @@ export default {
         return;
       }
     },
+
+    clearOnFocus() {
+      this.incorrect = false;
+      this.noRegister = false;
+    },
   },
 
   created() {
@@ -82,6 +87,7 @@ export default {
               class="form-control"
               placeholder="E-mail"
               v-model="form.email"
+              v-on:focus="clearOnFocus"
             />
             <p v-if="this.noRegister">User no registered</p>
           </div>
@@ -94,6 +100,7 @@ export default {
               class="form-control"
               placeholder="Password"
               v-model="form.password"
+              v-on:focus="clearOnFocus"
             />
             <p v-if="this.incorrect">Incorrect password</p>
           </div>
