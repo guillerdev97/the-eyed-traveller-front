@@ -29,6 +29,14 @@ const router = createRouter({
       component: () => import("../views/RegisterView.vue"),
     },
     {
+      path: "/settings",
+      name: "settings",
+      meta: {
+        requiresAuth: true,
+      },
+      component: () => import("../views/UpdateView.vue"),
+    },
+    {
       path: "/home",
       name: "home",
       meta: {
