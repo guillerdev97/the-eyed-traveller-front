@@ -79,9 +79,9 @@ export default {
     <nav class="d-flex justify-content-center align-items-center w-75 mb-5">
       <div
         id="categories"
-        class="d-flex justify-content-around align-items w-50"
+        class="d-flex justify-content-around align-items w-75"
       >
-        <router-link class="link" to="/">
+        <router-link class="link" to="/home">
           <p class="pt-2 pb-2">Explore</p>
         </router-link>
 
@@ -91,6 +91,10 @@ export default {
 
         <router-link class="link" to="/attractions">
           <p class="pt-2 pb-2">Attractions</p>
+        </router-link>
+
+        <router-link v-if="this.token === true" class="link" to="/myview">
+          <p class="pt-2 pb-2">My images</p>
         </router-link>
       </div>
     </nav>
