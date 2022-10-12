@@ -2,17 +2,14 @@
 import { RouterLink } from "vue-router";
 
 export default {
-  name: "TrendingHome",
+  name: "CategoriesHome",
 
   components: { RouterLink },
 };
 </script>
 
 <template>
-  <main class="mt-3">
-    <h4 class="mb-2">Most popular images</h4>
-    <p class="mb-2">Take a view to the trending images of the moment</p>
-
+  <main class="mt-5">
     <section
       id="categories"
       class="d-flex justify-content-between align-items-center"

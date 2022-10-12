@@ -1,18 +1,18 @@
 <script>
 import TheHeader from "../components/TheHeader.vue";
-import TrendingHome from "../components/TrendingHome.vue";
-import TheCarousel from "../components/TheCarousel.vue";
+import CategoriesHome from "../components/CategoriesHome.vue";
+import TheTrendingHome from "../components/TheTrendingHome.vue";
 
 export default {
   name: "HomeView",
-  components: { TheHeader, TrendingHome, TheCarousel },
+  components: { TheHeader, CategoriesHome, TheTrendingHome },
 };
 </script>
 
 <template>
   <TheHeader />
-  <TrendingHome />
-  <TheCarousel />
+  <CategoriesHome />
+  <TheTrendingHome />
 </template>
 
 <style></style>
