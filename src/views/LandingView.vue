@@ -13,6 +13,7 @@ export default {
 
     clearStorage() {
       localStorage.removeItem("token");
+      localStorage.removeItem("name");
     },
   },
 

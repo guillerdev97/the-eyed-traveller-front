@@ -21,8 +21,8 @@ export const apiAuth = {
     });
   },
 
-  deleteUser(id) {
-    return axios.delete(baseUrl + "/user/delete/" + id, {
+  deleteUser() {
+    return axios.delete(baseUrl + "/user/delete", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

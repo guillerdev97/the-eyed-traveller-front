@@ -6,7 +6,7 @@ export default {
 
   data() {
     return {
-      userId: "",
+      userId: Number,
       warning: false,
       form: {
         name: "",
@@ -21,24 +21,43 @@ export default {
       const response = await apiAuth.userProfile();
 
       this.userId = response.data.data.id;
+      console.log(this.userId);
       this.form.name = response.data.data.name;
       this.form.email = response.data.data.email;
     },
 
     async updateUser() {
-      alert("Are you sure you want to update user data?");
+      const verify = confirm("Are you sure you want to update user data?");
 
-      if (this.form.password === "") {
-        this.warning = true;
+      if (verify === true) {
+        if (this.form.password === "") {
+          this.warning = true;
 
-        return;
+          return;
+        }
+
+        await apiAuth.updateUser(this.userId, this.form);
+
+        alert("Data has been updated");
+
+        this.$router.push("/myview");
       }
 
-      await apiAuth.updateUser(this.userId, this.form);
+      return;
+    },
 
-      alert("Data has been updated");
+    async deleteUser() {
+      const verify = confirm("Are you sure you want to delete your account?");
 
-      this.$router.push("/myview");
+      if (verify === true) {
+        await apiAuth.deleteUser();
+
+        localStorage.clear();
+
+        alert("Your account has been deleted");
+
+        this.$router.push("/home");
+      }
     },
 
     clearOnFocus() {
