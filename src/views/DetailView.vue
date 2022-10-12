@@ -22,7 +22,6 @@ export default {
   },
 
   methods: {
-    // get images
     async getImages() {
       const response = await apiImages.listImages();
 
@@ -83,7 +82,9 @@ export default {
 
 <template>
   <TheHeader />
+
   <main class="d-flex justify-content-center align-items-center">
+    <!-- image detail -->
     <div
       class="img d-flex flex-column justify-content-between align-items-center"
     >
@@ -101,11 +102,14 @@ export default {
     </div>
   </main>
 
+  <!-- show if is true -->
+  <!-- add fav -->
   <div v-if="this.checkToken === true" class="fav">
     <button v-on:click="addFavImage" id="favButton" class="mt-3" type="button">
       Add to favorites!
     </button>
   </div>
+  <!-- login -->
   <div v-if="this.checkToken === false" class="fav">
     <a href="/login"
       ><button id="favButton" class="mt-3" type="button">

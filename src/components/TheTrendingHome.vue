@@ -13,7 +13,6 @@ export default {
   },
 
   methods: {
-    // get popular images
     async getTrendingImages() {
       const response = await apiFavorites.trendingImages();
 
@@ -53,6 +52,7 @@ export default {
     <h4>Most popular images</h4>
     <p>Take a view to the trending images of the moment</p>
   </div>
+  <!-- first div v-for images -->
   <div class="d-flex justify-content-between align-items-center trending">
     <div
       id="first"
@@ -60,9 +60,11 @@ export default {
       :key="index"
       class="d-flex justify-content-between align-items-center"
     >
+      <!-- image -->
       <div
         class="img d-flex flex-column justify-content-between align-items-center"
       >
+        <!-- link to detail -->
         <router-link
           :to="{
             name: 'detail',
@@ -81,6 +83,7 @@ export default {
     </div>
   </div>
 
+  <!-- second div v-for images -->
   <div class="d-flex justify-content-between align-items-center trending">
     <div
       id="second"
@@ -88,9 +91,11 @@ export default {
       :key="index"
       class="d-flex justify-content-between align-items-center"
     >
+      <!-- image -->
       <div
         class="img d-flex flex-column justify-content-between align-items-center"
       >
+        <!-- link image to detail -->
         <router-link
           :to="{
             name: 'detail',

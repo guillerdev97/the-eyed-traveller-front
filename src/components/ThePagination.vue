@@ -86,6 +86,7 @@ export default {
           <div
             class="d-flex justify-content-between align-items-center w-100 text"
           >
+          <!-- show one or other if delete my image or user image -->
             <div v-if="this.bool === 'user'">
               <button type="button" v-on:click="deleteFavImage(image.id)">
                 ❌

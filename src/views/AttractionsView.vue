@@ -42,15 +42,18 @@ export default {
     class="d-flex flex-column justify-content-around align-items-center"
   >
     <div id="images">
+      <!-- grid images -->
       <div
         class="m-auto mt-3 ml-3 mr-3 mb-4"
         v-for="(image, index) in attractionsImages"
         :key="index"
         v-show="(pag - 1) * NUM_RESULTS <= index && pag * NUM_RESULTS > index"
       >
+        <!-- image -->
         <div
           class="img d-flex flex-column justify-content-between align-items-center"
         >
+          <!-- image link to detail -->
           <router-link
             :to="{
               name: 'detail',
@@ -59,6 +62,7 @@ export default {
             ><div>
               <img :src="image.image" class="image" alt="" /></div
           ></router-link>
+          <!-- image title -->
           <div class="d-flex justify-content-end align-items-center w-100 text">
             <p>{{ image.title }}</p>
           </div>
