@@ -14,7 +14,6 @@ The philosophy of the app is to offer users a quick overview of sites they might
 ## Technical test developed for Factoría F5
 
 Develop a web application to manage "my favorite images".
-favorite images".
 
 ## Requirementes
 
