@@ -12,6 +12,7 @@ export default {
   },
 
   methods: {
+    // get popular images
     async getTrendingImages() {
       const response = await apiFavorites.trendingImages();
 
