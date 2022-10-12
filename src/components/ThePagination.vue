@@ -2,9 +2,20 @@
 export default {
   name: "ThePagination",
 
+  data() {
+    return {
+      NUM_RESULTS: 3,
+      pag: 1,
+    };
+  },
+
   props: {
     data: {
       type: Array,
+      required: true,
+    },
+    bool: {
+      type: String,
       required: true,
     },
   },
@@ -13,6 +24,7 @@ export default {
 
 <template>
   <section
+    v-if="this.data !== undefined"
     id="pagination"
     class="d-flex flex-column justify-content-around align-items-center"
   >
@@ -34,7 +46,11 @@ export default {
             ><div>
               <img :src="image.image" class="image" alt="" /></div
           ></router-link>
-          <div class="d-flex justify-content-end align-items-center w-100 text">
+          <div
+            class="d-flex justify-content-between align-items-center w-100 text"
+          >
+            <div v-if="this.bool === 'user'">❌</div>
+            <div v-if="this.bool === 'my'"><a href="/imagesettings">⚙️</a></div>
             <p>{{ image.title }}</p>
           </div>
         </div>
@@ -75,6 +91,7 @@ export default {
 #pagination {
   width: 80vw;
   margin: 20vh auto;
+  margin-bottom: 3vh !important;
 }
 
 #images {

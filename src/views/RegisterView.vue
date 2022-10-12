@@ -1,6 +1,6 @@
 <script>
 import TheAuthHeader from "../components/TheAuthHeader.vue";
-import RegisterForm from "../components/RegisterForm.vue";
+import RegisterForm from "../components/forms/RegisterForm.vue";
 
 export default {
   name: "RegisterView",

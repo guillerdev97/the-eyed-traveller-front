@@ -1,5 +1,5 @@
 <script>
-import { apiAuth } from "../services/apiAuth.js";
+import { apiAuth } from "../../services/apiAuth.js";
 
 export default {
   name: "RegisterForm",

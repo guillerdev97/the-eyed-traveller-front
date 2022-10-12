@@ -10,4 +10,28 @@ export const apiFavorites = {
       },
     });
   },
+
+  listMyImages() {
+    return axios.get(baseUrl + "/image/listmy", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+  },
+
+  listOtherImages() {
+    return axios.get(baseUrl + "/image/listother", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+  },
+
+  deleteFavImage(id) {
+    return axios.delete(baseUrl + "/image/favorite/delete" + id, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+  },
 };

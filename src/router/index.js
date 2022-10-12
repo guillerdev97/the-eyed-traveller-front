@@ -79,6 +79,16 @@ const router = createRouter({
       props: true,
       component: () => import("../views/DetailView.vue"),
     },
+
+    {
+      path: "/imagesettings",
+      name: "imagesettings",
+      meta: {
+        requiresAuth: false,
+      },
+      props: true,
+      component: () => import("../views/ImageSettingsView.vue"),
+    },
   ],
 });
 

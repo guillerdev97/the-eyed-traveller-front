@@ -1,7 +1,6 @@
 <script>
 import { RouterLink } from "vue-router";
 import { apiAuth } from "../services/apiAuth.js";
-import TheSearch from "./TheSearch.vue";
 
 export default {
   name: "TheHeader",
@@ -42,13 +41,13 @@ export default {
     this.headerName();
   },
 
-  components: { RouterLink, TheSearch },
+  components: { RouterLink },
 };
 </script>
 
 <template>
   <header
-    class="d-flex flex-column justify-content-around align-items-center pt-3 pb-3"
+    class="d-flex flex-column justify-content-around align-items-center pt-3"
   >
     <nav class="d-flex justify-content-between align-items-center w-75 mb-3">
       <router-link to="/home">
@@ -78,7 +77,7 @@ export default {
       </div>
     </nav>
 
-    <nav class="d-flex justify-content-center align-items-center w-75 mb-5">
+    <nav class="d-flex justify-content-center align-items-center w-75 mb-2">
       <div
         id="categories"
         class="d-flex justify-content-around align-items w-75"
@@ -108,8 +107,6 @@ export default {
         Search images, keep them and travel through your eyes...
       </h4>
     </div>
-
-    <TheSearch />
   </header>
 </template>
 
