@@ -1,42 +1,17 @@
 <script>
-import TheHeader from "../components/TheHeader.vue";
-import { apiImages } from "../services/apiImages.js";
-
 export default {
-  name: "AttractionsView",
-  data() {
-    return {
-      attractionsImages: [],
-      NUM_RESULTS: 3,
-      pag: 1,
-    };
-  },
+  name: "ThePagination",
 
-  methods: {
-    async listAttractionsImages() {
-      const response = await apiImages.listImages();
-
-      const array = response.data.data;
-
-      array.forEach((image) => {
-        if (image.category_id === 2) {
-          this.attractionsImages.push(image);
-        }
-      });
+  props: {
+    data: {
+      type: Array,
+      required: true,
     },
   },
-
-  created() {
-    this.listAttractionsImages();
-  },
-
-  components: { TheHeader },
 };
 </script>
 
 <template>
-  <TheHeader />
-
   <section
     id="pagination"
     class="d-flex flex-column justify-content-around align-items-center"
@@ -44,7 +19,7 @@ export default {
     <div id="images">
       <div
         class="m-auto mt-3 ml-3 mr-3 mb-4"
-        v-for="(image, index) in attractionsImages"
+        v-for="(image, index) in data"
         :key="index"
         v-show="(pag - 1) * NUM_RESULTS <= index && pag * NUM_RESULTS > index"
       >
@@ -83,7 +58,7 @@ export default {
           <a
             href="#"
             aria-label="Next"
-            v-show="(pag * NUM_RESULTS) / attractionsImages.length < 1"
+            v-show="(pag * NUM_RESULTS) / data.length < 1"
             @click.prevent="pag += 1"
           >
             <span class="fs-5" aria-hidden="true">Next</span>
@@ -138,7 +113,6 @@ export default {
   align-items: center;
 }
 span {
-  margin: 1vw;
   color: var(--base-color-blue);
 }
 </style>
