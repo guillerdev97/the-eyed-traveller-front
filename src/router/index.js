@@ -69,6 +69,16 @@ const router = createRouter({
       },
       component: () => import("../views/MyImagesView.vue"),
     },
+
+    {
+      path: "/detail/:id",
+      name: "detail",
+      meta: {
+        requiresAuth: false,
+      },
+      props: true,
+      component: () => import("../views/DetailView.vue"),
+    },
   ],
 });
 

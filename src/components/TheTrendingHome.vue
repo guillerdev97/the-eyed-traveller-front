@@ -1,5 +1,6 @@
 <script>
 import { apiFavorites } from "../services/apiFavorites.js";
+import { RouterLink } from "vue-router";
 
 export default {
   name: "TheTrending",
@@ -42,6 +43,8 @@ export default {
   created() {
     this.getTrendingImages();
   },
+
+  components: { RouterLink },
 };
 </script>
 
@@ -60,9 +63,14 @@ export default {
       <div
         class="img d-flex flex-column justify-content-between align-items-center"
       >
-        <div>
-          <img :src="image.image" class="image" alt="" />
-        </div>
+        <router-link
+          :to="{
+            name: 'detail',
+            params: { id: image.id },
+          }"
+          ><div>
+            <img :src="image.image" class="image" alt="" /></div
+        ></router-link>
         <div
           class="d-flex justify-content-between align-items-center w-100 text"
         >
@@ -83,9 +91,14 @@ export default {
       <div
         class="img d-flex flex-column justify-content-between align-items-center"
       >
-        <div>
-          <img :src="image.image" class="image" alt="" />
-        </div>
+        <router-link
+          :to="{
+            name: 'detail',
+            params: { id: image.id },
+          }"
+          ><div>
+            <img :src="image.image" class="image" alt="" /></div
+        ></router-link>
         <div
           class="d-flex justify-content-between align-items-center w-100 text"
         >
