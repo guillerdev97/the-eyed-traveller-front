@@ -1,6 +1,7 @@
 <script>
 import TheHeader from "../components/TheHeader.vue";
 import { apiImages } from "../services/apiImages.js";
+import { apiFavorites } from "../services/apiFavorites.js";
 
 export default {
   name: "DetailView",
@@ -49,6 +50,26 @@ export default {
 
       this.checkToken = false;
     },
+
+    async addFavImage() {
+      const verify = confirm("Are you sure you want to add this image to fav?");
+
+      if (verify === true) {
+        const response = await apiFavorites.addFavImage(this.id);
+
+        if (response.data.msg === "Repeat") {
+          alert("This image owns you!");
+
+          this.$router.push("/home");
+
+          return;
+        }
+
+        alert("This image has been added to your fav images!");
+
+        this.$router.push("/myview");
+      }
+    },
   },
 
   created() {
@@ -81,11 +102,9 @@ export default {
   </main>
 
   <div v-if="this.checkToken === true" class="fav">
-    <a href="/myview"
-      ><button id="favButton" class="mt-3" type="button">
-        Add to favorites!
-      </button></a
-    >
+    <button v-on:click="addFavImage" id="favButton" class="mt-3" type="button">
+      Add to favorites!
+    </button>
   </div>
   <div v-if="this.checkToken === false" class="fav">
     <a href="/login"

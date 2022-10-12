@@ -28,7 +28,15 @@ export const apiFavorites = {
   },
 
   deleteFavImage(id) {
-    return axios.delete(baseUrl + "/image/favorite/delete" + id, {
+    return axios.delete(baseUrl + "/image/favorite/delete/" + id, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+  },
+
+  addFavImage(id) {
+    return axios.get(baseUrl + "/image/favorite/add/" + id, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

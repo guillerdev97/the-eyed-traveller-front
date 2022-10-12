@@ -1,16 +1,17 @@
 <script>
 import TheAuthHeader from "../components/TheAuthHeader.vue";
-import RegisterForm from "../components/RegisterForm.vue";
+import CreateForm from "../components/CreateForm.vue";
 
 export default {
-  name: "RegisterView",
-  components: { TheAuthHeader, RegisterForm },
+  name: "CreateView",
+
+  components: { TheAuthHeader, CreateForm },
 };
 </script>
 
 <template>
   <TheAuthHeader />
-  <RegisterForm />
+  <CreateForm />
 </template>
 
 <style></style>

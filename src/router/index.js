@@ -81,13 +81,12 @@ const router = createRouter({
     },
 
     {
-      path: "/imagesettings",
-      name: "imagesettings",
+      path: "/createimage",
+      name: "createimage",
       meta: {
-        requiresAuth: false,
+        requiresAuth: true,
       },
-      props: true,
-      component: () => import("../views/ImageSettingsView.vue"),
+      component: () => import("../views/CreateView.vue"),
     },
   ],
 });

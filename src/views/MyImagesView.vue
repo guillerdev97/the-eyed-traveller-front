@@ -25,7 +25,15 @@ export default {
     async listFavImages() {
       const response = await apiFavorites.listOtherImages();
 
-      this.favImages = response.data.userImages;
+      const array = response.data.userImages;
+
+      array.forEach((image) => {
+        if (this.favImages.includes(image)) {
+          return;
+        }
+
+        this.favImages.push(image);
+      });
     },
   },
 
@@ -40,7 +48,7 @@ export default {
 
 <template>
   <TheHeader />
-  <h4 class="text-center mt-5">My Fav Images</h4>
+  <h4 class="text-center mt-5">My Fav Images <a href="/createimage">➕</a></h4>
   <ThePagination :data="myImages" :bool="my" />
   <h4 class="text-center mt-5">My Fav User Images</h4>
   <ThePagination :data="favImages" :bool="user" />

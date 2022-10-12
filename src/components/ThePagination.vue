@@ -1,4 +1,7 @@
 <script>
+import { apiFavorites } from "../services/apiFavorites.js";
+import { apiImages } from "../services/apiImages.js";
+
 export default {
   name: "ThePagination",
 
@@ -7,6 +10,40 @@ export default {
       NUM_RESULTS: 3,
       pag: 1,
     };
+  },
+
+  methods: {
+    async deleteFavImage(id) {
+      const verify = confirm("Are you sure you want to delete this fav image?");
+
+      if (verify === true) {
+        await apiFavorites.deleteFavImage(id);
+
+        alert("This fav image has been deleted");
+
+        location.reload();
+
+        return;
+      }
+
+      return;
+    },
+
+    async deleteImage(id) {
+      const verify = confirm("Are you sure you want to delete your image?");
+
+      if (verify === true) {
+        await apiImages.deleteImage(id);
+
+        alert("This fav image has been deleted");
+
+        location.reload();
+
+        return;
+      }
+
+      return;
+    },
   },
 
   props: {
@@ -49,8 +86,16 @@ export default {
           <div
             class="d-flex justify-content-between align-items-center w-100 text"
           >
-            <div v-if="this.bool === 'user'">❌</div>
-            <div v-if="this.bool === 'my'"><a href="/imagesettings">⚙️</a></div>
+            <div v-if="this.bool === 'user'">
+              <button type="button" v-on:click="deleteFavImage(image.id)">
+                ❌
+              </button>
+            </div>
+            <div v-if="this.bool === 'my'">
+              <button type="button" v-on:click="deleteImage(image.id)">
+                ❌
+              </button>
+            </div>
             <p>{{ image.title }}</p>
           </div>
         </div>
@@ -131,5 +176,14 @@ export default {
 }
 span {
   color: var(--base-color-blue);
+}
+
+button {
+  margin-top: -1.7vh;
+  border: none;
+  background-color: white;
+}
+button:hover {
+  font-size: 1.4vw;
 }
 </style>
